@@ -24,4 +24,4 @@ jobs:
         with:
           fetch-depth: 2
       # Runs jupydiff Github Action 
-      - uses: Faethm-ai/jupydiff@master
+      - uses: blairhudosn/jupydiff@master
