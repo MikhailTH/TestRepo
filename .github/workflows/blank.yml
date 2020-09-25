@@ -24,4 +24,4 @@ jobs:
         with:
           fetch-depth: 2
       # Runs jupydiff Github Action 
-      - uses: blairhudosn/jupydiff@master
+      - uses: blairhudson/jupydiff@master
