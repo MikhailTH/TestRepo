@@ -1,9 +1,11 @@
 name: Test
 on:
-  pull_request:
-    types:
-        - opened
-        - synchronize
+  push:
+    
+#  pull_request:
+ #   types:
+ #       - opened
+ #       - synchronize
 
 jobs:
   test:
