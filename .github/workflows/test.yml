@@ -13,10 +13,10 @@ jobs:
             fetch-depth: 2
         - name: Run
           run: 
-            rm /tests/test.ipynb
-            mw changes.ipynb test.ipynb
-            git add test.ipynb
-            git commit test.ipynb
+            rm test.ipynb;
+            mw changes.ipynb test.ipynb;
+            git add test.ipynb;
+            git commit test.ipynb;
         
         - name: jupydiff
           uses: ./
