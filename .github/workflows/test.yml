@@ -15,11 +15,44 @@ jobs:
           with:
             fetch-depth: 2
         - name: Run
-            run: 
-              rm /tests/test.ipynb
-              mw changes.ipynb test.ipynb
-              git add test.ipynb
-              git commit test.ipynb
+          run: 
+            rm /tests/test.ipynb
+            mw changes.ipynb test.ipynb
+            git add test.ipynb
+            git commit test.ipynb
         
         - name: jupydiff
           uses: ./
+
+        - name: Display Changes in Commit Comment
+          uses: actions/github-script@v1
+          with:
+            github-token: ${{secrets.GITHUB_TOKEN}}
+            script: |
+              const fs = require('fs');
+              function getSha() {
+                if (context.eventName && context.eventName == "pull_request") {
+                  return context.payload.pull_request.head.sha;
+                } else {
+                  return context.sha;
+                }
+              }
+              async function run(data) {
+                try {
+                  const sha = getSha();
+                  await github.repos.createCommitComment({
+                    owner: context.repo.owner,
+                    repo: context.repo.repo,
+                    commit_sha: sha,
+                    body: "Dear contributor please ensure diff commit comment is displaying desired output"
+                  });
+                } catch (error) {
+                  core.setFailed(error.message);
+                }
+              }  
+              await fs.readFile('output.txt', function read(err, data) {
+                if (err) {
+                  throw err;
+                }
+                run(data.toString());
+              });
