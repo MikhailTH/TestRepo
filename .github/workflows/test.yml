@@ -1,6 +1,9 @@
 name: Test
 on:
-  push:
+  pull_request:
+    types:
+        - opened
+        - synchronize
 
 jobs:
   test:
@@ -13,11 +16,12 @@ jobs:
             fetch-depth: 2
         - name: Run
           run: 
-            rm test.ipynb;
-            mw changes.ipynb test.ipynb;
-            git add test.ipynb;
-            git commit test.ipynb;
-        
+            shell: bash
+              rm /tests/test.ipynb
+              mw /test/changes.ipynb tests/test.ipynb
+              git add /test/test.ipynb
+              git commit /tests/test.ipynb
+
         - name: jupydiff
           uses: ./
 
