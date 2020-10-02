@@ -1,0 +1,427 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "ModuleNotFoundError",
+     "evalue": "No module named 'ROOT'",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[1;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[1;31mModuleNotFoundError\u001b[0m                       Traceback (most recent call last)",
+      "\u001b[1;32m<ipython-input-2-fe2473532a82>\u001b[0m in \u001b[0;36m<module>\u001b[1;34m\u001b[0m\n\u001b[1;32m----> 1\u001b[1;33m \u001b[1;32mfrom\u001b[0m \u001b[0mROOT\u001b[0m \u001b[1;32mimport\u001b[0m \u001b[0mTFile\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0mRooRealVar\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0mRooDataSet\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0mRooArgSet\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0mRooGaussian\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0mRooChebychev\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0mRooArgList\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0mRooAddPdf\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0mRooFit\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0m\u001b[0;32m      2\u001b[0m \u001b[1;32mimport\u001b[0m \u001b[0mrootnotes\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n",
+      "\u001b[1;31mModuleNotFoundError\u001b[0m: No module named 'ROOT'"
+     ]
+    }
+   ],
+   "source": [
+    "from ROOT import TFile, RooRealVar, RooDataSet, RooArgSet, RooGaussian, RooChebychev, RooArgList, RooAddPdf, RooFit\n",
+    "import rootnotes"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "NameError",
+     "evalue": "name 'TFile' is not defined",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[1;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[1;31mNameError\u001b[0m                                 Traceback (most recent call last)",
+      "\u001b[1;32m<ipython-input-3-f24a7faf0094>\u001b[0m in \u001b[0;36m<module>\u001b[1;34m\u001b[0m\n\u001b[1;32m----> 1\u001b[1;33m \u001b[0minputfile\u001b[0m \u001b[1;33m=\u001b[0m \u001b[0mTFile\u001b[0m\u001b[1;33m(\u001b[0m\u001b[1;34m\"TESHEP_Pedagogical_Data.root\"\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0m",
+      "\u001b[1;31mNameError\u001b[0m: name 'TFile' is not defined"
+     ]
+    }
+   ],
+   "source": [
+    "inputfile = TFile(\"TESHEP_Pedagogical_Data.root\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "NameError",
+     "evalue": "name 'inputfile' is not defined",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[1;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[1;31mNameError\u001b[0m                                 Traceback (most recent call last)",
+      "\u001b[1;32m<ipython-input-4-737c3ea9d1d5>\u001b[0m in \u001b[0;36m<module>\u001b[1;34m\u001b[0m\n\u001b[1;32m----> 1\u001b[1;33m \u001b[0minputchain\u001b[0m \u001b[1;33m=\u001b[0m \u001b[0minputfile\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0mGet\u001b[0m\u001b[1;33m(\u001b[0m\u001b[1;34m\"DecayTree\"\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0m",
+      "\u001b[1;31mNameError\u001b[0m: name 'inputfile' is not defined"
+     ]
+    }
+   ],
+   "source": [
+    "inputchain = inputfile.Get(\"DecayTree\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "nameoffitvar = \"D0_MM\""
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "rangeoffit = (1816., 1914)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "backgroundrange = (1890., 1914.)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "nsigmasigbox = 2."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "NameError",
+     "evalue": "name 'RooRealVar' is not defined",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[1;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[1;31mNameError\u001b[0m                                 Traceback (most recent call last)",
+      "\u001b[1;32m<ipython-input-9-a4ddefbeebb5>\u001b[0m in \u001b[0;36m<module>\u001b[1;34m\u001b[0m\n\u001b[1;32m----> 1\u001b[1;33m \u001b[0mmassvar\u001b[0m \u001b[1;33m=\u001b[0m \u001b[0mRooRealVar\u001b[0m\u001b[1;33m(\u001b[0m\u001b[1;34m\"D0_MM\"\u001b[0m\u001b[1;33m,\u001b[0m \u001b[1;34m\"D0_MM\"\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0mrangeoffit\u001b[0m\u001b[1;33m[\u001b[0m\u001b[1;36m0\u001b[0m\u001b[1;33m]\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0mrangeoffit\u001b[0m\u001b[1;33m[\u001b[0m\u001b[1;36m1\u001b[0m\u001b[1;33m]\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0m",
+      "\u001b[1;31mNameError\u001b[0m: name 'RooRealVar' is not defined"
+     ]
+    }
+   ],
+   "source": [
+    "massvar = RooRealVar(\"D0_MM\", \"D0_MM\", rangeoffit[0], rangeoffit[1])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "NameError",
+     "evalue": "name 'RooDataSet' is not defined",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[1;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[1;31mNameError\u001b[0m                                 Traceback (most recent call last)",
+      "\u001b[1;32m<ipython-input-10-aba774b0c4b2>\u001b[0m in \u001b[0;36m<module>\u001b[1;34m\u001b[0m\n\u001b[1;32m----> 1\u001b[1;33m \u001b[0mmydataset\u001b[0m \u001b[1;33m=\u001b[0m \u001b[0mRooDataSet\u001b[0m\u001b[1;33m(\u001b[0m\u001b[1;34m\"DecayTreeDataSet\"\u001b[0m\u001b[1;33m,\u001b[0m\u001b[1;34m\"DecayTreeDataSet\"\u001b[0m\u001b[1;33m,\u001b[0m\u001b[0mRooArgSet\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mmassvar\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0m",
+      "\u001b[1;31mNameError\u001b[0m: name 'RooDataSet' is not defined"
+     ]
+    }
+   ],
+   "source": [
+    "mydataset = RooDataSet(\"DecayTreeDataSet\",\"DecayTreeDataSet\",RooArgSet(massvar))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "NameError",
+     "evalue": "name 'inputchain' is not defined",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[1;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[1;31mNameError\u001b[0m                                 Traceback (most recent call last)",
+      "\u001b[1;32m<ipython-input-11-b60405ed7714>\u001b[0m in \u001b[0;36m<module>\u001b[1;34m\u001b[0m\n\u001b[1;32m----> 1\u001b[1;33m \u001b[1;32mfor\u001b[0m \u001b[0mentry\u001b[0m \u001b[1;32min\u001b[0m \u001b[0mrange\u001b[0m\u001b[1;33m(\u001b[0m\u001b[1;36m0\u001b[0m\u001b[1;33m,\u001b[0m\u001b[0minputchain\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0mGetEntries\u001b[0m\u001b[1;33m(\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m)\u001b[0m \u001b[1;33m:\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0m\u001b[0;32m      2\u001b[0m   \u001b[0minputchain\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0mGetEntry\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mentry\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m      3\u001b[0m   \u001b[1;32mif\u001b[0m \u001b[0minputchain\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0m__getattr__\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mnameoffitvar\u001b[0m\u001b[1;33m)\u001b[0m \u001b[1;33m>\u001b[0m \u001b[0mrangeoffit\u001b[0m\u001b[1;33m[\u001b[0m\u001b[1;36m1\u001b[0m\u001b[1;33m]\u001b[0m \u001b[1;32mor\u001b[0m\u001b[0;31m \u001b[0m\u001b[0;31m\\\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m      4\u001b[0m      \u001b[0minputchain\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0m__getattr__\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mnameoffitvar\u001b[0m\u001b[1;33m)\u001b[0m \u001b[1;33m<\u001b[0m \u001b[0mrangeoffit\u001b[0m\u001b[1;33m[\u001b[0m\u001b[1;36m0\u001b[0m\u001b[1;33m]\u001b[0m \u001b[1;33m:\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m      5\u001b[0m     \u001b[1;32mcontinue\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n",
+      "\u001b[1;31mNameError\u001b[0m: name 'inputchain' is not defined"
+     ]
+    }
+   ],
+   "source": [
+    "for entry in range(0,inputchain.GetEntries()) :\n",
+    "  inputchain.GetEntry(entry)\n",
+    "  if inputchain.__getattr__(nameoffitvar) > rangeoffit[1] or \\\n",
+    "     inputchain.__getattr__(nameoffitvar) < rangeoffit[0] :\n",
+    "    continue\n",
+    "  massvar.setVal(inputchain.__getattr__(nameoffitvar))\n",
+    "  mydataset.add(RooArgSet(massvar))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "NameError",
+     "evalue": "name 'RooRealVar' is not defined",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[1;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[1;31mNameError\u001b[0m                                 Traceback (most recent call last)",
+      "\u001b[1;32m<ipython-input-12-c05c84fa96a0>\u001b[0m in \u001b[0;36m<module>\u001b[1;34m\u001b[0m\n\u001b[1;32m----> 1\u001b[1;33m \u001b[0mgausMean_B\u001b[0m      \u001b[1;33m=\u001b[0m \u001b[0mRooRealVar\u001b[0m\u001b[1;33m(\u001b[0m\u001b[1;34m\"gausMean_B\"\u001b[0m\u001b[1;33m,\u001b[0m\u001b[1;34m\"gausMean_B\"\u001b[0m\u001b[1;33m,\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mrangeoffit\u001b[0m\u001b[1;33m[\u001b[0m\u001b[1;36m0\u001b[0m\u001b[1;33m]\u001b[0m\u001b[1;33m+\u001b[0m\u001b[0mrangeoffit\u001b[0m\u001b[1;33m[\u001b[0m\u001b[1;36m1\u001b[0m\u001b[1;33m]\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m/\u001b[0m\u001b[1;36m2.\u001b[0m\u001b[1;33m,\u001b[0m\u001b[0mrangeoffit\u001b[0m\u001b[1;33m[\u001b[0m\u001b[1;36m0\u001b[0m\u001b[1;33m]\u001b[0m\u001b[1;33m,\u001b[0m\u001b[0mrangeoffit\u001b[0m\u001b[1;33m[\u001b[0m\u001b[1;36m1\u001b[0m\u001b[1;33m]\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0m\u001b[0;32m      2\u001b[0m \u001b[0mgausWidth_B\u001b[0m     \u001b[1;33m=\u001b[0m \u001b[0mRooRealVar\u001b[0m\u001b[1;33m(\u001b[0m\u001b[1;34m\"gausWidth_B\"\u001b[0m\u001b[1;33m,\u001b[0m\u001b[1;34m\"gausWidth_B\"\u001b[0m\u001b[1;33m,\u001b[0m\u001b[1;36m15.\u001b[0m\u001b[1;33m,\u001b[0m\u001b[1;36m1.\u001b[0m\u001b[1;33m,\u001b[0m\u001b[1;36m50.\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m      3\u001b[0m \u001b[0mchebOne_B\u001b[0m       \u001b[1;33m=\u001b[0m \u001b[0mRooRealVar\u001b[0m\u001b[1;33m(\u001b[0m\u001b[1;34m\"chebOne_B\"\u001b[0m\u001b[1;33m,\u001b[0m\u001b[1;34m\"chebOne_B\"\u001b[0m\u001b[1;33m,\u001b[0m\u001b[1;36m0.1\u001b[0m\u001b[1;33m,\u001b[0m\u001b[1;33m-\u001b[0m\u001b[1;36m5.\u001b[0m\u001b[1;33m,\u001b[0m\u001b[1;36m5.\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m      4\u001b[0m \u001b[0mgaussian_B\u001b[0m      \u001b[1;33m=\u001b[0m \u001b[0mRooGaussian\u001b[0m\u001b[1;33m(\u001b[0m\u001b[1;34m\"gaussian_B\"\u001b[0m\u001b[1;33m,\u001b[0m\u001b[1;34m\"gaussian_B\"\u001b[0m\u001b[1;33m,\u001b[0m\u001b[0mmassvar\u001b[0m\u001b[1;33m,\u001b[0m\u001b[0mgausMean_B\u001b[0m\u001b[1;33m,\u001b[0m\u001b[0mgausWidth_B\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m      5\u001b[0m \u001b[0mcheb_B\u001b[0m          \u001b[1;33m=\u001b[0m \u001b[0mRooChebychev\u001b[0m\u001b[1;33m(\u001b[0m\u001b[1;34m\"cheb_B\"\u001b[0m\u001b[1;33m,\u001b[0m\u001b[1;34m\"cheb_B\"\u001b[0m\u001b[1;33m,\u001b[0m\u001b[0mmassvar\u001b[0m\u001b[1;33m,\u001b[0m\u001b[0mRooArgList\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mchebOne_B\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n",
+      "\u001b[1;31mNameError\u001b[0m: name 'RooRealVar' is not defined"
+     ]
+    }
+   ],
+   "source": [
+    "gausMean_B \t= RooRealVar(\"gausMean_B\",\"gausMean_B\",(rangeoffit[0]+rangeoffit[1])/2.,rangeoffit[0],rangeoffit[1])\n",
+    "gausWidth_B \t= RooRealVar(\"gausWidth_B\",\"gausWidth_B\",15.,1.,50.)\n",
+    "chebOne_B \t= RooRealVar(\"chebOne_B\",\"chebOne_B\",0.1,-5.,5.)\n",
+    "gaussian_B \t= RooGaussian(\"gaussian_B\",\"gaussian_B\",massvar,gausMean_B,gausWidth_B)\n",
+    "cheb_B     \t= RooChebychev(\"cheb_B\",\"cheb_B\",massvar,RooArgList(chebOne_B))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "NameError",
+     "evalue": "name 'RooRealVar' is not defined",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[1;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[1;31mNameError\u001b[0m                                 Traceback (most recent call last)",
+      "\u001b[1;32m<ipython-input-13-54043065807e>\u001b[0m in \u001b[0;36m<module>\u001b[1;34m\u001b[0m\n\u001b[1;32m----> 1\u001b[1;33m \u001b[0mN_Sig_B\u001b[0m \u001b[1;33m=\u001b[0m \u001b[0mRooRealVar\u001b[0m\u001b[1;33m(\u001b[0m\u001b[1;34m\"N_Sig_B\"\u001b[0m\u001b[1;33m,\u001b[0m\u001b[1;34m\"N_Sig_B\"\u001b[0m\u001b[1;33m,\u001b[0m\u001b[1;36m10000\u001b[0m\u001b[1;33m,\u001b[0m\u001b[1;36m0\u001b[0m\u001b[1;33m,\u001b[0m\u001b[1;36m250000\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0m\u001b[0;32m      2\u001b[0m \u001b[0mN_Bkg_B\u001b[0m \u001b[1;33m=\u001b[0m \u001b[0mRooRealVar\u001b[0m\u001b[1;33m(\u001b[0m\u001b[1;34m\"N_Bkg_B\"\u001b[0m\u001b[1;33m,\u001b[0m\u001b[1;34m\"N_Bkg_B\"\u001b[0m\u001b[1;33m,\u001b[0m\u001b[1;36m10000\u001b[0m\u001b[1;33m,\u001b[0m\u001b[1;36m0\u001b[0m\u001b[1;33m,\u001b[0m\u001b[1;36m500000\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n",
+      "\u001b[1;31mNameError\u001b[0m: name 'RooRealVar' is not defined"
+     ]
+    }
+   ],
+   "source": [
+    "N_Sig_B = RooRealVar(\"N_Sig_B\",\"N_Sig_B\",10000,0,250000)\n",
+    "N_Bkg_B = RooRealVar(\"N_Bkg_B\",\"N_Bkg_B\",10000,0,500000)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "NameError",
+     "evalue": "name 'RooAddPdf' is not defined",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[1;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[1;31mNameError\u001b[0m                                 Traceback (most recent call last)",
+      "\u001b[1;32m<ipython-input-14-5f561da9de8d>\u001b[0m in \u001b[0;36m<module>\u001b[1;34m\u001b[0m\n\u001b[1;32m----> 1\u001b[1;33m \u001b[0mtotalpdf_B\u001b[0m \u001b[1;33m=\u001b[0m \u001b[0mRooAddPdf\u001b[0m\u001b[1;33m(\u001b[0m\u001b[1;34m\"totalpdf_B\"\u001b[0m\u001b[1;33m,\u001b[0m\u001b[1;34m\"totalpdf_B\"\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0mRooArgList\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mgaussian_B\u001b[0m\u001b[1;33m,\u001b[0m\u001b[0mcheb_B\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0mRooArgList\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mN_Sig_B\u001b[0m\u001b[1;33m,\u001b[0m\u001b[0mN_Bkg_B\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0m\u001b[0;32m      2\u001b[0m \u001b[0mtotalpdf_B\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0mfitTo\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mmydataset\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0mRooFit\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0mExtended\u001b[0m\u001b[1;33m(\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n",
+      "\u001b[1;31mNameError\u001b[0m: name 'RooAddPdf' is not defined"
+     ]
+    }
+   ],
+   "source": [
+    "totalpdf_B = RooAddPdf(\"totalpdf_B\",\"totalpdf_B\", RooArgList(gaussian_B,cheb_B), RooArgList(N_Sig_B,N_Bkg_B))\n",
+    "totalpdf_B.fitTo(mydataset, RooFit.Extended())"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "NameError",
+     "evalue": "name 'rootnotes' is not defined",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[1;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[1;31mNameError\u001b[0m                                 Traceback (most recent call last)",
+      "\u001b[1;32m<ipython-input-15-5635a13c7929>\u001b[0m in \u001b[0;36m<module>\u001b[1;34m\u001b[0m\n\u001b[1;32m----> 1\u001b[1;33m \u001b[0mcanv_Dmass\u001b[0m \u001b[1;33m=\u001b[0m \u001b[0mrootnotes\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0mdefault_canvas\u001b[0m\u001b[1;33m(\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0m\u001b[0;32m      2\u001b[0m \u001b[0mframe_Dmass\u001b[0m \u001b[1;33m=\u001b[0m \u001b[0mmassvar\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0mframe\u001b[0m\u001b[1;33m(\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m      3\u001b[0m \u001b[0mmydataset\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0mplotOn\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mframe_Dmass\u001b[0m\u001b[1;33m,\u001b[0m\u001b[0mRooFit\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0mBinning\u001b[0m\u001b[1;33m(\u001b[0m\u001b[1;36m100\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m      4\u001b[0m \u001b[0mtotalpdf_B\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0mplotOn\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mframe_Dmass\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m      5\u001b[0m \u001b[0mframe_Dmass\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0mDraw\u001b[0m\u001b[1;33m(\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n",
+      "\u001b[1;31mNameError\u001b[0m: name 'rootnotes' is not defined"
+     ]
+    }
+   ],
+   "source": [
+    "canv_Dmass = rootnotes.default_canvas()\n",
+    "frame_Dmass = massvar.frame()\n",
+    "mydataset.plotOn(frame_Dmass,RooFit.Binning(100))\n",
+    "totalpdf_B.plotOn(frame_Dmass)\n",
+    "frame_Dmass.Draw()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 16,
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "NameError",
+     "evalue": "name 'canv_Dmass' is not defined",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[1;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[1;31mNameError\u001b[0m                                 Traceback (most recent call last)",
+      "\u001b[1;32m<ipython-input-16-73defe07be4b>\u001b[0m in \u001b[0;36m<module>\u001b[1;34m\u001b[0m\n\u001b[1;32m----> 1\u001b[1;33m \u001b[0mcanv_Dmass\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0m",
+      "\u001b[1;31mNameError\u001b[0m: name 'canv_Dmass' is not defined"
+     ]
+    }
+   ],
+   "source": [
+    "canv_Dmass"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "NameError",
+     "evalue": "name 'massvar' is not defined",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[1;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[1;31mNameError\u001b[0m                                 Traceback (most recent call last)",
+      "\u001b[1;32m<ipython-input-17-df80d8e833b5>\u001b[0m in \u001b[0;36m<module>\u001b[1;34m\u001b[0m\n\u001b[1;32m----> 1\u001b[1;33m \u001b[0mmassvar\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0msetRange\u001b[0m\u001b[1;33m(\u001b[0m\u001b[1;34m\"integralRangeAll\"\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0mrangeoffit\u001b[0m\u001b[1;33m[\u001b[0m\u001b[1;36m0\u001b[0m\u001b[1;33m]\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0mrangeoffit\u001b[0m\u001b[1;33m[\u001b[0m\u001b[1;36m1\u001b[0m\u001b[1;33m]\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0m\u001b[0;32m      2\u001b[0m massvar.setRange(\"integralRangeSignal\", \n\u001b[0;32m      3\u001b[0m                  \u001b[0mgausMean_B\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0mgetVal\u001b[0m\u001b[1;33m(\u001b[0m\u001b[1;33m)\u001b[0m \u001b[1;33m-\u001b[0m \u001b[0mnsigmasigbox\u001b[0m \u001b[1;33m*\u001b[0m \u001b[0mgausWidth_B\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0mgetVal\u001b[0m\u001b[1;33m(\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m,\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m      4\u001b[0m                  gausMean_B.getVal() + nsigmasigbox * gausWidth_B.getVal())\n\u001b[0;32m      5\u001b[0m \u001b[0mmassvar\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0msetRange\u001b[0m\u001b[1;33m(\u001b[0m\u001b[1;34m\"integralRangeBackground\"\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0mbackgroundrange\u001b[0m\u001b[1;33m[\u001b[0m\u001b[1;36m0\u001b[0m\u001b[1;33m]\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0mbackgroundrange\u001b[0m\u001b[1;33m[\u001b[0m\u001b[1;36m1\u001b[0m\u001b[1;33m]\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n",
+      "\u001b[1;31mNameError\u001b[0m: name 'massvar' is not defined"
+     ]
+    }
+   ],
+   "source": [
+    "\n",
+    "\n",
+    "massvar.setRange(\"integralRangeAll\", rangeoffit[0], rangeoffit[1])\n",
+    "massvar.setRange(\"integralRangeSignal\", \n",
+    "                 gausMean_B.getVal() - nsigmasigbox * gausWidth_B.getVal(),\n",
+    "                 gausMean_B.getVal() + nsigmasigbox * gausWidth_B.getVal())\n",
+    "massvar.setRange(\"integralRangeBackground\", backgroundrange[0], backgroundrange[1])\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 18,
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "NameError",
+     "evalue": "name 'cheb_B' is not defined",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[1;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[1;31mNameError\u001b[0m                                 Traceback (most recent call last)",
+      "\u001b[1;32m<ipython-input-18-f1886aa84cb0>\u001b[0m in \u001b[0;36m<module>\u001b[1;34m\u001b[0m\n\u001b[1;32m----> 1\u001b[1;33m \u001b[0mintegralall\u001b[0m    \u001b[1;33m=\u001b[0m \u001b[0mcheb_B\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0mcreateIntegral\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mRooArgSet\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mmassvar\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0mRooFit\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0mNormSet\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mRooArgSet\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mmassvar\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0mRooFit\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0mRange\u001b[0m\u001b[1;33m(\u001b[0m\u001b[1;34m\"integralRangeAll\"\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0m\u001b[0;32m      2\u001b[0m \u001b[0mintegralsignal\u001b[0m \u001b[1;33m=\u001b[0m \u001b[0mcheb_B\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0mcreateIntegral\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mRooArgSet\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mmassvar\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0mRooFit\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0mNormSet\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mRooArgSet\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mmassvar\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0mRooFit\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0mRange\u001b[0m\u001b[1;33m(\u001b[0m\u001b[1;34m\"integralRangeSignal\"\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m      3\u001b[0m \u001b[0mintegralback\u001b[0m   \u001b[1;33m=\u001b[0m \u001b[0mcheb_B\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0mcreateIntegral\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mRooArgSet\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mmassvar\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0mRooFit\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0mNormSet\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mRooArgSet\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mmassvar\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0mRooFit\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0mRange\u001b[0m\u001b[1;33m(\u001b[0m\u001b[1;34m\"integralRangeBackground\"\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n",
+      "\u001b[1;31mNameError\u001b[0m: name 'cheb_B' is not defined"
+     ]
+    }
+   ],
+   "source": [
+    "integralall    = cheb_B.createIntegral(RooArgSet(massvar), RooFit.NormSet(RooArgSet(massvar)), RooFit.Range(\"integralRangeAll\"))\n",
+    "integralsignal = cheb_B.createIntegral(RooArgSet(massvar), RooFit.NormSet(RooArgSet(massvar)), RooFit.Range(\"integralRangeSignal\"))\n",
+    "integralback   = cheb_B.createIntegral(RooArgSet(massvar), RooFit.NormSet(RooArgSet(massvar)), RooFit.Range(\"integralRangeBackground\"))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 19,
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "NameError",
+     "evalue": "name 'integralsignal' is not defined",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[1;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[1;31mNameError\u001b[0m                                 Traceback (most recent call last)",
+      "\u001b[1;32m<ipython-input-19-7c99bfbafc2e>\u001b[0m in \u001b[0;36m<module>\u001b[1;34m\u001b[0m\n\u001b[1;32m----> 1\u001b[1;33m \u001b[0mnormalizedIntegralValue_S\u001b[0m \u001b[1;33m=\u001b[0m \u001b[0mintegralsignal\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0mgetVal\u001b[0m\u001b[1;33m(\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m/\u001b[0m\u001b[0mintegralall\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0mgetVal\u001b[0m\u001b[1;33m(\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0m\u001b[0;32m      2\u001b[0m \u001b[0mnormalizedIntegralValue_B\u001b[0m \u001b[1;33m=\u001b[0m \u001b[0mintegralback\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0mgetVal\u001b[0m\u001b[1;33m(\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m/\u001b[0m\u001b[0mintegralall\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0mgetVal\u001b[0m\u001b[1;33m(\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n",
+      "\u001b[1;31mNameError\u001b[0m: name 'integralsignal' is not defined"
+     ]
+    }
+   ],
+   "source": [
+    "normalizedIntegralValue_S = integralsignal.getVal()/integralall.getVal()\n",
+    "normalizedIntegralValue_B = integralback.getVal()/integralall.getVal()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 20,
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "SyntaxError",
+     "evalue": "Missing parentheses in call to 'print'. Did you mean print(\"Signal range =\",\\)? (<ipython-input-20-b1108a8834e7>, line 1)",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[1;36m  File \u001b[1;32m\"<ipython-input-20-b1108a8834e7>\"\u001b[1;36m, line \u001b[1;32m1\u001b[0m\n\u001b[1;33m    print \"Signal range =\",\\\u001b[0m\n\u001b[1;37m          ^\u001b[0m\n\u001b[1;31mSyntaxError\u001b[0m\u001b[1;31m:\u001b[0m Missing parentheses in call to 'print'. Did you mean print(\"Signal range =\",\\)?\n"
+     ]
+    }
+   ],
+   "source": [
+    "print \"Signal range =\",\\\n",
+    "    gausMean_B.getVal() - nsigmasigbox * gausWidth_B.getVal(), \"-\",\\\n",
+    "    gausMean_B.getVal() + nsigmasigbox*gausWidth_B.getVal()\n",
+    "print \"Background in signal range =\", normalizedIntegralValue_S * N_Bkg_B.getVal()\n",
+    "print \"Background in background range =\",normalizedIntegralValue_B * N_Bkg_B.getVal()\n",
+    "\n",
+    "print \"Background scale factor =\", normalizedIntegralValue_S / normalizedIntegralValue_B"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.8.3"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}
