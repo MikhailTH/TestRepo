@@ -38,22 +38,9 @@ jobs:
                   return context.sha;
                 }
               }
-              async function run(data) {
-                try {
-                  const sha = getSha();
-                  await github.repos.createCommitComment({
-                    owner: context.repo.owner,
-                    repo: context.repo.repo,
-                    commit_sha: sha,
-                    body: "Dear contributor please ensure diff commit comment is displaying desired output"
-                  });
-                } catch (error) {
-                  core.setFailed(error.message);
-                }
-              }  
-              await fs.readFile('output.txt', function read(err, data) {
-                if (err) {
-                  throw err;
-                }
-                run(data.toString());
+              await github.repos.createCommitComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                commit_sha: sha,
+                body: "Dear contributor please ensure diff commit comment is displaying desired output"
               });
